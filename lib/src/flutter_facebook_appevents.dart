@@ -17,7 +17,7 @@ class FacebookAppEvents {
       await _channel.invokeMethod('set_user_id', userId);
 
   /// Log an event with [eventName] and [parameters].
-  static Future<void> logEvent(String eventName, Map? parameters) async {
+  static Future<void> logEvent(String eventName, [Map? parameters]) async {
     Map map = {'event_name': eventName, 'parameters': parameters ?? {}};
     String jsonString = json.encode(map);
 
