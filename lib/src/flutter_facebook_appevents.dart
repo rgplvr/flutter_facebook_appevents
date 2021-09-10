@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 /// Bridges Facebook SDK's App Events functionality.
 class FacebookAppEvents {
   static const MethodChannel _channel =
-  const MethodChannel('flutter_facebook_appevents');
+      const MethodChannel('flutter_facebook_appevents');
 
   /// Resets user ID.
   static Future<void> resetUserId() async =>
@@ -17,7 +17,7 @@ class FacebookAppEvents {
       await _channel.invokeMethod('set_user_id', userId);
 
   /// Log an event with [eventName] and [parameters].
-  static Future<void> logEvent(String eventName, Map parameters) async {
+  static Future<void> logEvent(String eventName, Map? parameters) async {
     Map map = {'event_name': eventName, 'parameters': parameters ?? {}};
     String jsonString = json.encode(map);
 
